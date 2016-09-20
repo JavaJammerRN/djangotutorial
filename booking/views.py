@@ -18,3 +18,10 @@ def booking(request):
             form = ContactForm() # An unbound form
 
     return render(request, 'booking/booking.html', context)
+
+
+# def booking_detail(request, pk):
+
+#     booking = Booking.objects.filter(id = pk)
+#     context = {'booking' : booking}
+#     return render(request, 'booking/bookingdetail.html', context)

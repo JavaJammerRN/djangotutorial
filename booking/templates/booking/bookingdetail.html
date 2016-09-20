@@ -1,0 +1,7 @@
+{% extends "personal/header.html" %}
+  
+{% block content %}
+  <h3>{{object.date|date:"D d-M-Y"}}</h3>
+  <h4>{{object.user.user_name}}</h4>
+  <h6>{{object.desk.desk_number}} | {{object.desk.location}}</h6>
+{% endblock %}
