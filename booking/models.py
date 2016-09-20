@@ -14,16 +14,12 @@ class Desk(models.Model):
     desk_number = models.CharField(max_length=1)
 
     def __str__(self):
-        return (self.desk_number + ' | ' + self.location)
+        return (self.location + ' | ' +  self.desk_number )
 
 class Booking(models.Model):
     user = models.ForeignKey(User)
-    desk = models.ForeignKey(Desk)
+    desk = models.ForeignKey(Desk, default='')
     date = models.DateTimeField()
 
     def __str__(self):
-        return self.user.user_name
-        # return (self.desk.desk_number + ' | ' + self.desk.location)
-
-
-
+        return ( str(self.date.strftime("%Y-%m-%d")) + ' | ' + self.user.user_name + ' | ' + self.desk.location + ': ' + self.desk.desk_number)

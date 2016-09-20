@@ -1,1 +1,27 @@
 {% extends "personal/header.html" %}
+{% load staticfiles %}
+
+{% block imports %}
+    <script src="{% static '/booking/js/booking.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+  
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+      <center>{% include "booking/forms/searchbookingform.html" %}</center>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+	  <div class="col-md-offset-4 col-md-4 list-group">
+        {% for booking in booking_list %}
+          <a href="/booking/{{booking.id}}" class="list-group-item list-group-item-action">
+            <center><h4 class="list-group-item-heading">{{ booking.date|date:"D d-M-Y" }}</h4></center>
+            <center><p class="list-group-item-text"> {{booking.user.user_name}} | {{booking.desk.location}}</p></center>
+          </a>
+	   {% endfor %}  
+	  </div> 
+  </div>
+{% endblock %}
