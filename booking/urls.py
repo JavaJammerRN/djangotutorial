@@ -6,4 +6,5 @@ from .models import Booking
 urlpatterns = [
     url(r'^$', views.booking, name='booking'),
     url(r'^(?P<pk>\d+)$', views.booking_detail, name='booking_detail'),
+    url(r'^create$', views.booking_create, name='booking_create'),
 ]
