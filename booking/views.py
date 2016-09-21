@@ -20,8 +20,9 @@ def booking(request):
     return render(request, 'booking/booking.html', context)
 
 
-# def booking_detail(request, pk):
+def booking_detail(request, pk):
 
-#     booking = Booking.objects.filter(id = pk)
-#     context = {'booking' : booking}
-#     return render(request, 'booking/bookingdetail.html', context)
+    booking = Booking.objects.get(id = pk)
+    context = {'booking' : booking}
+    print(booking.date)
+    return render(request, 'booking/bookingdetail.html', context)

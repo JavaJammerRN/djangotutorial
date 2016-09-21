@@ -17,8 +17,8 @@ class Desk(models.Model):
         return (self.location + ' | ' +  self.desk_number )
 
 class Booking(models.Model):
-    user = models.ForeignKey(User, default='')
-    desk = models.ForeignKey(Desk, default='')
+    user = models.ForeignKey(User, default='', related_name='user')
+    desk = models.ForeignKey(Desk, default='',  related_name='desk')
     date = models.DateTimeField()
 
     def __str__(self):
