@@ -1,8 +1,9 @@
 {% extends "personal/header.html" %}
 
+
 {% block content %}
   <center>
-    {% for c in content %}
+    {% for c in content %} <!-- Getting this content from the dictionary in views.py. Looping through both then displaying. -->
       <p>{{c}}</p>
     {% endfor %}
   </center>

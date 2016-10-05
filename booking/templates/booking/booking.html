@@ -9,13 +9,13 @@
 {% block content %}
   <div class="row">
     <div class="col-md-offset-4 col-md-4">
-      <center>{% include "booking/forms/searchbookingform.html" %}</center>
+      <center>{% include "booking/forms/searchbookingform.html" %}</center> <!-- this works because of the context that exists with the correct form -->
     </div>
   </div>
   <br>
   <div id="booking_list" class="row">
 	  <div class="col-md-offset-4 col-md-4 list-group">
-        {% for booking in booking_list %}
+        {% for booking in booking_list %} <!-- This will only show when there are items in the booking list which happend after a search. see views.py -->
           <a href="/booking/{{booking.id}}" class="list-group-item list-group-item-action">
             <center><h4 class="list-group-item-heading">{{ booking.date|date:"D d-M-Y" }}</h4></center>
             <center><p class="list-group-item-text"> {{booking.user.user_name}} | {{booking.desk.location}}</p></center>

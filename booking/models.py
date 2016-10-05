@@ -16,6 +16,7 @@ class Desk(models.Model):
     def __str__(self):
         return (self.location + ' | ' +  self.desk_number )
 
+# default is just cos did some migrations before finished everything so it was confused.
 class Booking(models.Model):
     user = models.ForeignKey(User, default='', related_name='user')
     desk = models.ForeignKey(Desk, default='',  related_name='desk')
