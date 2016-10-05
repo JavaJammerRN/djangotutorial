@@ -24,3 +24,4 @@ class Booking(models.Model):
 
     def __str__(self):
         return ( str(self.date.strftime("%Y-%m-%d")) + ' | ' + self.user.user_name + ' | ' + self.desk.location + ': ' + self.desk.desk_number)
+        

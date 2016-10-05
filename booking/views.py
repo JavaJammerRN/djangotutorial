@@ -8,6 +8,17 @@ def booking_create(request):
     booking_form = CreateBookingForm()
     context = {'form' : booking_form}
 
+    if request.method == 'POST':
+        form = CreateBookingForm(request.POST)
+
+        if form.is_valid():
+            booking = form.save()
+            messages.success(request, 'Booking has been created!')
+
+        else:
+            messages.warning(request, 'Oops, Something went wrong. Please try again later!')
+            form = CreateBookingForm() # An unbound form
+
     return render(request, 'booking/bookingcreate.html', context)
 
 # booking form is create and added to context (check forms.py to see how the forms were made)
@@ -35,7 +46,7 @@ def booking(request):
                 context['booking_list'] = booking_list
 
         else:
-            form = ContactForm() # An unbound form
+            form = SearchBookingForm() # An unbound form
 
 
     return render(request, 'booking/booking.html', context)
